@@ -20,6 +20,10 @@ function Registro() {
     }
   }
 
+  function formulario() {
+    navigate("/");
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#A67B5B]">
       <div className="bg-[#493628] px-4 pt-10 pb-8 w-4/12 rounded-lg">
@@ -69,6 +73,12 @@ function Registro() {
             onClick={biblioteca}
           >
             Registrarse
+          </button>
+          <button
+            onClick={formulario}
+            className="text-white text-center bg-red-500 rounded-lg text-xl p-2"
+          >
+            Cancelar
           </button>
         </form>
       </div>
