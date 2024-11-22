@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
 
+/**
+ * Componente BuscarLibros
+ *
+ * Este componente permite buscar libros utilizando la API de OpenLibrary.
+ * Muestra un campo de entrada para escribir el título o el autor del libro,
+ * un botón para iniciar la búsqueda y una lista de resultados.
+ * También permite limpiar los resultados de la búsqueda.
+ *
+ */
 const BuscarLibros = () => {
   const [query, setQuery] = useState("");
   const [libros, setLibros] = useState([]);

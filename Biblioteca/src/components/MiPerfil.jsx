@@ -1,6 +1,45 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Componente MiPerfil
+ *
+ * Este componente obtiene y muestra la información de un usuario aleatorio utilizando la API de randomuser.me.
+ *
+ * @component
+ * @example
+ * return (
+ *   <MiPerfil />
+ * )
+ *
+ * @returns {JSX.Element} Un componente que muestra la información del perfil del usuario.
+ *
+ * @typedef {Object} Usuario
+ * @property {Object} name - El nombre del usuario.
+ * @property {string} name.first - El primer nombre del usuario.
+ * @property {string} name.last - El apellido del usuario.
+ * @property {string} email - El correo electrónico del usuario.
+ * @property {string} cell - El número de celular del usuario.
+ * @property {string} gender - El género del usuario.
+ * @property {Object} dob - La fecha de nacimiento del usuario.
+ * @property {number} dob.age - La edad del usuario.
+ * @property {Object} picture - Las imágenes del usuario.
+ * @property {string} picture.large - La imagen grande del usuario.
+ *
+ * @typedef {Object} Error
+ * @property {string} message - El mensaje de error.
+ *
+ * @typedef {Object} Estado
+ * @property {Usuario|null} usuario - El usuario obtenido de la API.
+ * @property {string} error - El mensaje de error en caso de que ocurra un error.
+ * @property {boolean} cargando - Indica si los datos están siendo cargados.
+ *
+ * @function ObtenerUsuario
+ * @description Función asíncrona que obtiene la información de un usuario de la API randomuser.me.
+ *
+ * @returns {Promise<void>} Una promesa que se resuelve cuando la información del usuario ha sido obtenida.
+ */
+
 function MiPerfil() {
   const [usuario, setUsuario] = useState(null);
   const [error, setError] = useState("");

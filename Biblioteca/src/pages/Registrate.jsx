@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Componente de registro de usuario.
+ *
+ * Este componente permite a los usuarios registrarse proporcionando su nombre, correo electrónico y contraseña.
+ * Al enviar el formulario si todos los campos están completos,
+ * se redirige a la página de la biblioteca.
+ */
 function Registro() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");

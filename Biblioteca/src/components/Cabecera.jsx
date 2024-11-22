@@ -1,16 +1,21 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Biblioteca from "../pages/Biblioteca";
 
 const Cabecera = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
 
+  /**
+   * Alterna el estado del menú entre abierto y cerrado.
+   * Invierte el valor actual de `isOpen`.
+   */
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  // Funciones para navegar entre las páginas de la aplicación.
 
   function cerrarSesion() {
     navigate("/");
@@ -26,7 +31,7 @@ const Cabecera = () => {
 
   return (
     <header className="bg-[#D6C0B3] py-2">
-      <div className="flex flex-row justify-between items-center px-11">
+      <div className="flex flex-row justify-between items-center  px-11">
         <div>
           <a href="/biblioteca">
             <img
@@ -36,11 +41,13 @@ const Cabecera = () => {
             />
           </a>
         </div>
-        <h1>
-          <Link to="/biblioteca" className="text-2xl">
-            Biblioteca Web
-          </Link>
-        </h1>
+        <div className="pl-10">
+          <h1>
+            <Link to="/biblioteca" className="text-2xl">
+              Biblioteca Web
+            </Link>
+          </h1>
+        </div>
         <div className="dropdown" ref={menuRef}>
           <button
             onClick={toggleMenu}
