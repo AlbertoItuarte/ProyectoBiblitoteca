@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
 import Cabecera from "../components/Cabecera";
 import BuscarLibros from "../components/BuscarLibros";
 
 function Biblioteca() {
   return (
-    <section className="bibliotecaContainer">
-      <div className="p-auto">
+    <section>
+      <div className="">
         <Cabecera />
       </div>
-      <div className="mt-28">
+      <div className="">
         <BuscarLibros />
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Biblioteca from "../pages/Biblioteca";
 
 const Cabecera = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,16 +12,16 @@ const Cabecera = () => {
     setIsOpen(!isOpen);
   };
 
-  function holaMundo() {
-    alert("Hola Mundo");
-  }
-
   function cerrarSesion() {
     navigate("/");
   }
 
   function miPerfil() {
     navigate("/perfil");
+  }
+
+  function biblioteca() {
+    navigate("/biblioteca");
   }
 
   return (
@@ -48,20 +49,24 @@ const Cabecera = () => {
             Menú
           </button>
           {isOpen && (
-            <ul className="dropdown-menu absolute bg-[#D6C0B3] text-[#493628] text-center">
-              <li className="dropdown-item rounded-lg">
-                <Link to="/biblioteca" className="">
-                  Biblioteca
-                </Link>
+            <ul className="dropdown-menu absolute bg-white text-center shadow-lg p-1 w-36">
+              <li
+                onClick={biblioteca}
+                className="p-1  hover:bg-gray-300 cursor-pointer"
+              >
+                Biblioteca
               </li>
-              <li className="dropdown-item rounded-lg" onClick={miPerfil}>
+              <li
+                onClick={miPerfil}
+                className="p-1  hover:bg-gray-300 cursor-pointer"
+              >
                 Mi perfil
               </li>
               <li
-                className="dropdown-item rounded-lg"
-                style={{ color: "#0066FF" }}
+                onClick={cerrarSesion}
+                className="p-1 text-red-500 hover:bg-gray-300 cursor-pointer"
               >
-                <button onClick={cerrarSesion}>Cerrar Sesión</button>
+                Cerrar Sesión
               </li>
             </ul>
           )}

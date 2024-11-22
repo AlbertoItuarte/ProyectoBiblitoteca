@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const BuscarLibros = () => {
   const [query, setQuery] = useState("");
   const [libros, setLibros] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   const SearchBooks = async () => {
     if (!query) return;
@@ -27,7 +34,7 @@ const BuscarLibros = () => {
   };
 
   return (
-    <div className="pt-24 min-h-screen w-full bg-[#A67B5B] fixed inset-0">
+    <div className="pt-6 h-screen w-full bg-[#A67B5B] ">
       <div className="w-3/12 rounded-xl  bg-[#493628] pb-4 mx-auto">
         <div className="flex justify-center py-3">
           <label htmlFor="" className="text-white text-center">
@@ -54,7 +61,7 @@ const BuscarLibros = () => {
       </div>
 
       <div className="justify-self-center w-4/5 pt-4">
-        {loading && <p className="font-bold">Cargando...</p>}
+        {loading && <p className="font-bold text-white">Cargando...</p>}
         {libros.length > 0 && (
           <button onClick={limpiar} className="text-white">
             Limpiar busqueda 🧹
@@ -63,7 +70,7 @@ const BuscarLibros = () => {
 
         {libros.length > 0 && (
           <div className="h-[calc(80vh-70px)] overflow-y-auto rounded-lg border border-gray-200 bg-white shadow-lg p-4">
-            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 x</div>l:grid-cols-4 gap-4">
               {libros.map((libro, index) => (
                 <li
                   key={libro.key || index}

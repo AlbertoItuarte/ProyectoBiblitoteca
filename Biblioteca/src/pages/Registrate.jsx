@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Registro() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,51 +14,64 @@ function Registro() {
     console.log("Password:", password);
   };
 
+  function biblioteca() {
+    if (nombre && email && password) {
+      navigate("/biblioteca");
+    }
+  }
+
   return (
-    <div className="flex justify-center ">
-      <form onSubmit={handleSubmit}>
-        <div className="flex justify-center">
-          <h2 className="text-3xl">Registro</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#A67B5B]">
+      <div className="bg-[#493628] px-4 pt-10 pb-8 w-4/12 rounded-lg">
+        <div className="pb-10">
+          <h2 className="text-4xl text-center text-white">Registro</h2>
         </div>
-        <div className="p-2">
-          <label>Nombre:</label>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-around space-y-4"
+        >
+          <label htmlFor="" className="text-white text-2xl">
+            Nombre:
+          </label>
           <input
             type="text"
+            placeholder="Nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             required
-            className="border-solid border-2 border-gray-300 rounded-lg w-full"
+            className="rounded-lg text-xl p-2 mb-2"
           />
-        </div>
-        <div className="p-2">
-          <label>Email:</label>
+          <label htmlFor="" className="text-white text-2xl">
+            Correo:
+          </label>
           <input
             type="email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="border-solid border-2 border-gray-300 rounded-lg w-full"
+            className="rounded-lg text-xl p-2 mb-2"
           />
-        </div>
-        <div className="p-2">
-          <label>Password:</label>
+          <label htmlFor="" className="text-white text-2xl">
+            Contraseña:
+          </label>
           <input
             type="password"
+            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="border-solid border-2 border-gray-300 rounded-lg w-full"
+            className="rounded-lg text-xl p-2 mb-2"
           />
-        </div>
-        <div className="flex justify-center">
           <button
             type="submit"
-            className="hover:bg-black hover:text-white p-1.5 rounded-lf border-solid border-2 border-gray-300 rounded-lg px-1.5"
+            className="bg-[#A67B5B] rounded-lg text-white text-xl p-2"
+            onClick={biblioteca}
           >
-            Registrar
+            Registrarse
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
